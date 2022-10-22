@@ -18,7 +18,7 @@ consteval auto arity(auto... args)
         return sizeof...(args);
 }
 
-decltype(auto) for_all_members(aggregate auto&& to_introspect, auto && function)
+constexpr decltype(auto) for_all_members(aggregate auto&& to_introspect, auto && function)
 {
     using T = std::remove_cvref_t<decltype(to_introspect)>;
     constexpr auto N = arity<T>();
@@ -40,5 +40,10 @@ decltype(auto) for_all_members(aggregate auto&& to_introspect, auto && function)
         auto&&[m1, m2, m3] = to_introspect;
         return function(m1, m2, m3);
     }
+}
+constexpr void for_each_members(aggregate auto&& to_introspect, auto && function)
+{
+    auto apply_unpacked = [&function](auto&&...m){ (function(m), ...); };
+    for_all_members(to_introspect, apply_unpacked);
 }
 }
