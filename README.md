@@ -3,7 +3,8 @@
 Lightweigth single header C++20 library.
 
 Offerings two simple functionalities,  
-to introspect public data stucture (*aggregate*). 
+to introspect public data stucture (*aggregate*),  
+without any need for change or annotation in user code.
 
 ***
 
