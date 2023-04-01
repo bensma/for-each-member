@@ -8,7 +8,7 @@ without any need for annotation or change in user code.
 
 ***
 
-### `smm::for_each_members`     
+### `smm::for_each_member`     
 A function use to apply the same invocable,  
 on each data member.  
 
@@ -22,7 +22,7 @@ on each data member.
     {
         Point p {1, 2, 3};
         auto print = [](double m){ std:: cout << m << ' '; };
-        smm::for_each_members(p, print);
+        smm::for_each_member(p, print);
     }
     // => output : "1 2 3 "
 ```
