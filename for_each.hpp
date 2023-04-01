@@ -273,7 +273,7 @@ constexpr decltype(auto) for_all_members(aggregate auto&& to_introspect, auto &&
         return FWD_SMM(function)(FWD_SMM(m1), FWD_SMM(m2), FWD_SMM(m3), FWD_SMM(m4), FWD_SMM(m5), FWD_SMM(m6), FWD_SMM(m7), FWD_SMM(m8), FWD_SMM(m9), FWD_SMM(m10), FWD_SMM(m11), FWD_SMM(m12), FWD_SMM(m13), FWD_SMM(m14), FWD_SMM(m15), FWD_SMM(m16), FWD_SMM(m17), FWD_SMM(m18), FWD_SMM(m19), FWD_SMM(m20), FWD_SMM(m21), FWD_SMM(m22), FWD_SMM(m23), FWD_SMM(m24), FWD_SMM(m25), FWD_SMM(m26), FWD_SMM(m27), FWD_SMM(m28), FWD_SMM(m29), FWD_SMM(m30), FWD_SMM(m31), FWD_SMM(m32), FWD_SMM(m33), FWD_SMM(m34), FWD_SMM(m35), FWD_SMM(m36), FWD_SMM(m37), FWD_SMM(m38), FWD_SMM(m39), FWD_SMM(m40), FWD_SMM(m41), FWD_SMM(m42), FWD_SMM(m43), FWD_SMM(m44), FWD_SMM(m45), FWD_SMM(m46), FWD_SMM(m47), FWD_SMM(m48), FWD_SMM(m49));
     }
 }
-constexpr void for_each_members(aggregate auto&& to_introspect, auto && function)
+constexpr void for_each_member(aggregate auto&& to_introspect, auto && function)
 {
     auto apply_unpacked = [&function](auto&&...m){ (function(m), ...); };
     for_all_members(FWD_SMM(to_introspect), apply_unpacked);
